@@ -35,7 +35,7 @@
 
     /* redefine your root css */
     :root {
-        --fs-h1: 4.5;
+        --fs-h1: 4.5rem;
         --fs-h2: 3.75rem;
         --fs-h3: 1.5rem;
         --fs-body: 1.125rem;
@@ -55,7 +55,56 @@ body {
 }
 
 img {
+    /* Display block to get rid of image issue */
     display: block;
-    /* set max width so it won't  */
+    /* set max width so it won't overflow and grow outside of its parent */
     max-width: 100%; 
+
 }
+
+strong {
+    font-weight: var(--fw-bold);
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+    margin: 0;
+
+}
+
+h1 {font-size: var(--fs-h1)}
+
+h2 {font-size: var(--fs-h2) }
+
+h3 {font-size: var(--fs-h3)}
+
+
+.section-title {
+
+    margin-bottom: .25em;
+}
+
+.section-title--intro{
+    font-weight: var(--fw-reg);
+}
+.section-title--intro strong {
+
+    /* Make Anna Vu appear on its own line */
+    display: block;
+}
+
+.section-subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section-subtitle--intro,
+.section-subtitle--about {
+
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+}
+
