@@ -28,9 +28,15 @@
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
 
+    /* Box size */
+    --bs: 0.25em 0.25em 0.75em rbga(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+
 }
 
 /* Once you screen is in this range, all the predefined size will be activated */
+
+/* What happen when screen is 800 and up */
 @media (min-width: 800px) {
 
     /* redefine your root css */
@@ -52,6 +58,10 @@ body {
     font-size: var(--fs-body);
     line-height: 1.6;
 
+}
+
+section {
+    padding: 5em 2em;
 }
 
 img {
@@ -106,5 +116,68 @@ h3 {font-size: var(--fs-h3)}
 
     background: var(--clr-accent);
     font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+    padding: .25em 1em;
 }
 
+/* ----------------------------END OF CUSTOM PROPS----------------------------------- */
+/* Header */
+nav {
+    display: none;
+}
+
+/* Styling Intro Section */
+.intro {
+    position: relative;
+}
+
+.intro--img {
+    box-shadow: var(--bs);
+}
+.section-subtitle--intro {
+    display: inline-block;
+}
+
+/* WHat happen when screen is 600px and up */
+@media (min-width: 600px) {
+
+    .intro {
+        display: grid;
+        grid-column-gap: 1em;
+
+        /* The div with img will fit the content */
+        width: min-content;
+        /* The div with img will sit in the middle */
+        margin: 0 auto;
+        grid-template-areas: "img title" "img subtitle";
+        grid-template-columns: min-content max-content;
+ 
+    }
+
+    .intro--img {
+        grid-area: img;
+        min-width: 250px;
+
+        /* Make sure img come on top */
+        position: relative;
+        z-index: 2;
+
+    }
+
+    .section-subtitle--intro {
+        /* Having the text full stack web dev stop stretching but fit into the area  */
+        align-self: start;
+        /* Have it stretch the whole length all the way accross */
+        grid-column: -1/1;
+        /* Move it up and not overlap */
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+
+
+
+    
+}
